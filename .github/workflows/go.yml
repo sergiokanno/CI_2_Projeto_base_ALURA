@@ -20,9 +20,12 @@ jobs:
       uses: actions/setup-go@v3
       with:
         go-version: ${{ matrix.go_version }}
+        
+    - name: Build-DB
+      run: docker compose build      
       
     - name: Create-DB
-      run: docker-compose up -d postgres
+      run: docker compose up -d
 
     - name: Test
       run: go test -v main_test.go 
