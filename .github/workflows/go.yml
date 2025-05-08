@@ -55,12 +55,6 @@ jobs:
     - name: Build Binary
       run: go build -o main main.go
   
-    - name: Upload Main Binary
-      uses: actions/upload-artifact@v4
-      with:
-        name: main-binary
-        path: main
-
   docker:
     needs: build
     uses: ./.github/workflows/Docker.yml
